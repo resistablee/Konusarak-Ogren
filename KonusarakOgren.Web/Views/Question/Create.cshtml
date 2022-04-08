@@ -1,0 +1,277 @@
+﻿@using KonusarakOgren.Entity.Request
+@model CreateQuestionRequest
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+@using (Html.BeginForm("Create", "Question", new { role = "form" }, FormMethod.Post, true, new { @Id = "frm-create-question" }))
+{
+    <div class="form-group d-flex">
+        <div class="col-lg-12 pl-0">
+            <label>Makale başlığı</label>
+            @Html.DropDownListFor(x => x.ArticleID, (SelectList)ViewBag.ArticleList, "Makale seçiniz", new { @class = "form-control", @Id= "ArticleList", onchange = "ArticleSelectChange(this)" })
+        </div>
+    </div>
+
+    <div class="form-group d-flex">
+        <div class="col-lg-12 pl-0">
+            <label>Makale</label>
+            <textarea id="ArticleArea" class="form-control"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-lg-12 pl-0">
+            <label>Soru 1</label>
+            @Html.TextBoxFor(x=>x.ArticleQuestion[0].Question.Text, new {@class = "form-control"})
+        </div>
+
+        <div class="col-12 pl-0">
+            <div class="col-12 d-flex pl-0 justify-content-between mt-2 pr-0">
+                <div class="col-lg-5 pl-0 input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">A</div>
+                    </div>
+                    @Html.TextBoxFor(x=>x.ArticleQuestion[0].Answers[0].Text, new {@class = "form-control"})
+                </div>
+
+                <div class="col-lg-5 pr-0 input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">B</div>
+                    </div>
+                    @Html.TextBoxFor(x=>x.ArticleQuestion[0].Answers[1].Text, new {@class = "form-control"})
+                </div>
+            </div>
+
+            <div class="col-12 d-flex pl-0 justify-content-between mt-2 pr-0">
+                <div class="col-lg-5 pl-0 input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">C</div>
+                    </div>
+                    @Html.TextBoxFor(x=>x.ArticleQuestion[0].Answers[2].Text, new {@class = "form-control"})
+                </div>
+
+                <div class="col-lg-5 pr-0 input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">D</div>
+                    </div>
+                    @Html.TextBoxFor(x=>x.ArticleQuestion[0].Answers[3].Text, new {@class = "form-control"})
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-5 pl-0 mt-2">
+            @Html.DropDownListFor(x => x.ArticleQuestion[0].CorrectAnswerID, (List<SelectListItem>)ViewBag.Answers, "Doğru cevabı seçiniz", new { @class = "form-control" })
+        </div>
+
+    </div>
+    <hr />
+    <div class="form-group">
+        <div class="col-lg-12 pl-0">
+            <label>Soru 2</label>
+            @Html.TextBoxFor(x=>x.ArticleQuestion[1].Question.Text, new {@class = "form-control"})
+        </div>
+
+        <div class="col-12 pl-0">
+            <div class="col-12 d-flex pl-0 justify-content-between mt-2 pr-0">
+                <div class="col-lg-5 pl-0 input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">A</div>
+                    </div>
+                    @Html.TextBoxFor(x=>x.ArticleQuestion[1].Answers[0].Text, new {@class = "form-control"})
+                </div>
+
+                <div class="col-lg-5 pr-0 input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">B</div>
+                    </div>
+                    @Html.TextBoxFor(x=>x.ArticleQuestion[1].Answers[1].Text, new {@class = "form-control"})
+                </div>
+            </div>
+
+            <div class="col-12 d-flex pl-0 justify-content-between mt-2 pr-0">
+                <div class="col-lg-5 pl-0 input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">C</div>
+                    </div>
+                    @Html.TextBoxFor(x=>x.ArticleQuestion[1].Answers[2].Text, new {@class = "form-control"})
+                </div>
+
+                <div class="col-lg-5 pr-0 input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">D</div>
+                    </div>
+                    @Html.TextBoxFor(x=>x.ArticleQuestion[1].Answers[3].Text, new {@class = "form-control"})
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-5 pl-0 mt-2">
+            @Html.DropDownListFor(x => x.ArticleQuestion[1].CorrectAnswerID, (List<SelectListItem>)ViewBag.Answers, "Doğru cevabı seçiniz", new { @class = "form-control" })
+        </div>
+
+    </div>
+    <hr />
+    <div class="form-group">
+        <div class="col-lg-12 pl-0">
+            <label>Soru 3</label>
+            @Html.TextBoxFor(x=>x.ArticleQuestion[2].Question.Text, new {@class = "form-control"})
+        </div>
+
+        <div class="col-12 pl-0">
+            <div class="col-12 d-flex pl-0 justify-content-between mt-2 pr-0">
+                <div class="col-lg-5 pl-0 input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">A</div>
+                    </div>
+                    @Html.TextBoxFor(x=>x.ArticleQuestion[2].Answers[0].Text, new {@class = "form-control"})
+                </div>
+
+                <div class="col-lg-5 pr-0 input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">B</div>
+                    </div>
+                    @Html.TextBoxFor(x=>x.ArticleQuestion[2].Answers[1].Text, new {@class = "form-control"})
+                </div>
+            </div>
+
+            <div class="col-12 d-flex pl-0 justify-content-between mt-2 pr-0">
+                <div class="col-lg-5 pl-0 input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">C</div>
+                    </div>
+                    @Html.TextBoxFor(x=>x.ArticleQuestion[2].Answers[2].Text, new {@class = "form-control"})
+                </div>
+
+                <div class="col-lg-5 pr-0 input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">D</div>
+                    </div>
+                    @Html.TextBoxFor(x=>x.ArticleQuestion[2].Answers[3].Text, new {@class = "form-control"})
+                </div>
+            </div>
+            <div class="col-lg-5 pl-0 mt-2">
+                @Html.DropDownListFor(x => x.ArticleQuestion[2].CorrectAnswerID, (List<SelectListItem>)ViewBag.Answers, "Doğru cevabı seçiniz", new { @class = "form-control" })
+            </div>
+        </div>
+
+    </div>
+    <hr />
+    <div class="form-group">
+        <div class="col-lg-12 pl-0">
+            <label>Soru 4</label>
+            @Html.TextBoxFor(x=>x.ArticleQuestion[3].Question.Text, new {@class = "form-control"})
+        </div>
+
+        <div class="col-12 pl-0">
+            <div class="col-12 d-flex pl-0 justify-content-between mt-2 pr-0">
+                <div class="col-lg-5 pl-0 input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">A</div>
+                    </div>
+                    @Html.TextBoxFor(x=>x.ArticleQuestion[3].Answers[0].Text, new {@class = "form-control"})
+                </div>
+
+                <div class="col-lg-5 pr-0 input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">B</div>
+                    </div>
+                    @Html.TextBoxFor(x=>x.ArticleQuestion[3].Answers[1].Text, new {@class = "form-control"})
+                </div>
+            </div>
+
+            <div class="col-12 d-flex pl-0 justify-content-between mt-2 pr-0">
+                <div class="col-lg-5 pl-0 input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">C</div>
+                    </div>
+                    @Html.TextBoxFor(x=>x.ArticleQuestion[3].Answers[2].Text, new {@class = "form-control"})
+                </div>
+
+                <div class="col-lg-5 pr-0 input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">D</div>
+                    </div>
+                    @Html.TextBoxFor(x=>x.ArticleQuestion[3].Answers[3].Text, new {@class = "form-control"})
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5 pl-0 mt-2">
+            @Html.DropDownListFor(x => x.ArticleQuestion[3].CorrectAnswerID, (List<SelectListItem>)ViewBag.Answers, "Doğru cevabı seçiniz", new { @class = "form-control" })
+        </div>
+
+    </div>
+}
+
+<button type="button" id="btn-create-question" class="btn btn-primary">Oluştur</button>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script type="text/javascript">
+    function ArticleSelectChange(tes) {
+
+        $.ajax({
+        type: "GET",
+        url: "/Article/" + tes.value,
+        success: function (data) {
+            document.getElementById("ArticleArea").value = data;
+        }
+        });
+    }
+
+    $("#btn-create-question").click(function () {
+        var frmdata = $("#frm-create-question").serialize();
+
+        $.ajax({
+            type: "POST",
+            dataType: "JSON",
+            url: "/Question/Create",
+            data: frmdata,
+            success: function (data) {
+                if (data == 1) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'İşlem başarılı',
+                        showConfirmButton: false,
+                        timer: 2000
+                    }).then(function (isConfirm) {
+                        if (isConfirm) {
+                            location.href = "/"
+                        }
+                        else {
+                            Swal.fire('Hata Oluştu!', 'İşlem sırasında hata oluştu?', 'warning');
+                            return false;
+                        }
+                    });
+                }
+                else if (data == 0) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: 'Bir saniye..',
+                        text: 'Ufak bir hata meydana geldi. Bunu senin için hemen halledeceğiz.',
+                        showConfirmButton: false,
+                        timer: 2500
+                    });
+                    return false;
+                }
+                else if (data == 2) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'warning',
+                        title: 'Bir saniye..',
+                        text: 'Diğer alanları da doldurmalısın',
+                        showConfirmButton: false,
+                        timer: 2500
+                    });
+                    return false;
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(textStatus);
+            }
+        });
+    });
+</script>

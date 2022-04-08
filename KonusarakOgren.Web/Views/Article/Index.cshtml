@@ -1,0 +1,31 @@
+﻿@using KonusarakOgren.Entity.SqlLiteKonusarakOgren.Entities.Article
+
+@model List<Article>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Makaleler</h1>
+</div>
+<br />
+<a class="btn btn-primary" href="/Question/Create">Soru Oluştur</a>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Başlık</th>
+            <th scope="col">URL</th>
+            <th scope="col">Makale</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.Title</th>
+                <td><a class="text-dark" href="@item.URL">@item.URL</a></td>
+                <td>@item.Text.Substring(0, 100)...</td>
+            </tr>
+        }
+    </tbody>
+</table>

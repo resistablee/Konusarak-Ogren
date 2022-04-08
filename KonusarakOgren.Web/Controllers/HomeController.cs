@@ -1,4 +1,5 @@
 ﻿using KonusarakOgren.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -17,7 +18,7 @@ namespace KonusarakOgren.Web.Controllers
         {
             return View();
         }
-
+        [Authorize(Roles = "Admin")]
         public IActionResult Privacy()
         {
             return View();
@@ -27,6 +28,12 @@ namespace KonusarakOgren.Web.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        [HttpGet("/AccessDenied")]
+        public IActionResult AccessDenied()
+        {
+            return View();
         }
     }
 }

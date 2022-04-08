@@ -1,0 +1,180 @@
+﻿@using KonusarakOgren.Entity.Response
+
+@{
+    ViewData["Title"] = "TakeTheExam";
+}
+@model CreateExamResponse
+
+@Html.HiddenFor(x=>x.ArticleID, new {id = "article-id"})
+
+<div style="text-align: center;">
+    <h1>@Model.ArticleTitle</h1>
+</div>
+
+
+<div>
+    <p>@Model.Article</p>
+</div>
+
+<hr />
+
+<div class="d-flex" style="flex-direction:column">
+    <div class="row justify-content-between">
+        <div class="col-5">
+            <p><span class="font-weight-bold">1) </span>@Model.Questions[0].Question.Text</p>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-check border mt-1">
+                        @Html.RadioButtonFor(x=>x.Questions[0].Answers[0],@Model.Questions[0].Answers[0].Text, new { @class="form-check-input answer", @id = "question1-option1", data_id = @Model.Questions[0].Answers[0].Id})
+                        @Html.Label("question1-option1", "A) " + @Model.Questions[0].Answers[0].Text, new { @class="form-check-label"})
+                    </div>
+                    <div class="form-check border mt-1">
+                        @Html.RadioButtonFor(x=>x.Questions[0].Answers[0],@Model.Questions[0].Answers[1].Text, new { @class="form-check-input answer", @id = "question1-option2", data_id = @Model.Questions[0].Answers[1].Id})
+                        @Html.Label("question1-option2", "B) " + @Model.Questions[0].Answers[1].Text, new { @class="form-check-label"})
+                    </div>
+                    <div class="form-check border mt-1">
+                        @Html.RadioButtonFor(x=>x.Questions[0].Answers[0],@Model.Questions[0].Answers[2].Text, new { @class="form-check-input answer", @id = "question1-option3", data_id = @Model.Questions[0].Answers[2].Id})
+                        @Html.Label("question1-option3", "C) " + @Model.Questions[0].Answers[2].Text, new { @class="form-check-label"})
+                    </div>
+                    <div class="form-check border mt-1">
+                        @Html.RadioButtonFor(x=>x.Questions[0].Answers[0],@Model.Questions[0].Answers[3].Text, new { @class="form-check-input answer", @id = "question1-option4", data_id = @Model.Questions[0].Answers[3].Id})
+                        @Html.Label("question1-option4", "D) " + @Model.Questions[0].Answers[3].Text, new { @class="form-check-label"})
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-5">
+            <p><span class="font-weight-bold">2) </span>@Model.Questions[1].Question.Text</p>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-check border mt-1">
+                        @Html.RadioButtonFor(x=>x.Questions[1].Answers[0],@Model.Questions[1].Answers[0].Text, new { @class="form-check-input answer", @id = "question2-option1", data_id = @Model.Questions[1].Answers[0].Id})
+                        @Html.Label("question2-option1", "A) " + @Model.Questions[1].Answers[0].Text, new { @class="form-check-label"})
+                    </div>
+                    <div class="form-check border mt-1">
+                        @Html.RadioButtonFor(x=>x.Questions[1].Answers[0],@Model.Questions[1].Answers[1].Text, new { @class="form-check-input answer", @id = "question2-option2", data_id = @Model.Questions[1].Answers[1].Id})
+                        @Html.Label("question2-option2", "B) " + @Model.Questions[1].Answers[1].Text, new { @class="form-check-label"})
+                    </div>
+                    <div class="form-check border mt-1">
+                        @Html.RadioButtonFor(x=>x.Questions[1].Answers[0],@Model.Questions[1].Answers[2].Text, new { @class="form-check-input answer", @id = "question2-option3", data_id = @Model.Questions[1].Answers[2].Id})
+                        @Html.Label("question2-option3", "C) " + @Model.Questions[1].Answers[2].Text, new { @class="form-check-label"})
+                    </div>
+                    <div class="form-check border mt-1">
+                        @Html.RadioButtonFor(x=>x.Questions[1].Answers[0], @Model.Questions[1].Answers[3].Text, new { @class="form-check-input answer", @id = "question2-option4", data_id = @Model.Questions[1].Answers[3].Id})
+                        @Html.Label("question2-option4", "D) " + @Model.Questions[1].Answers[3].Text, new { @class="form-check-label"})
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-between mt-4">
+        <div class="col-5">
+            <p><span class="font-weight-bold">3) </span>@Model.Questions[2].Question.Text</p>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-check border mt-1">
+                        @Html.RadioButtonFor(x=>x.Questions[2].Answers[0],@Model.Questions[2].Answers[0].Text, new { @class="form-check-input answer", @id = "question3-option1", data_id = @Model.Questions[2].Answers[0].Id})
+                        @Html.Label("question3-option1", "A) " + @Model.Questions[2].Answers[0].Text, new { @class="form-check-label"})
+                    </div>
+                    <div class="form-check border mt-1">
+                        @Html.RadioButtonFor(x=>x.Questions[2].Answers[0],@Model.Questions[2].Answers[1].Text, new { @class="form-check-input answer", @id = "question3-option2", data_id = @Model.Questions[2].Answers[1].Id})
+                        @Html.Label("question3-option2", "B) " + @Model.Questions[2].Answers[1].Text, new { @class="form-check-label"})
+                    </div>
+                    <div class="form-check border mt-1">
+                        @Html.RadioButtonFor(x=>x.Questions[2].Answers[0],@Model.Questions[2].Answers[2].Text, new { @class="form-check-input answer", @id = "question3-option3", data_id = @Model.Questions[2].Answers[2].Id})
+                        @Html.Label("question3-option3", "C) " + @Model.Questions[2].Answers[2].Text, new { @class="form-check-label"})
+                    </div>
+                    <div class="form-check border mt-1">
+                        @Html.RadioButtonFor(x=>x.Questions[2].Answers[0],@Model.Questions[2].Answers[3].Text, new { @class="form-check-input answer", @id = "question3-option4", data_id = @Model.Questions[2].Answers[3].Id})
+                        @Html.Label("question3-option4", "D) " + @Model.Questions[2].Answers[3].Text, new { @class="form-check-label"})
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-5">
+            <p><span class="font-weight-bold">4) </span>@Model.Questions[3].Question.Text</p>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-check border mt-1">
+                        @Html.RadioButtonFor(x=>x.Questions[3].Answers[0],@Model.Questions[3].Answers[0].Text, new { @class="form-check-input answer", @id = "question4-option1", data_id = @Model.Questions[3].Answers[0].Id})
+                        @Html.Label("question4-option1", "A) " + @Model.Questions[3].Answers[0].Text, new { @class="form-check-label"})
+                    </div>
+                    <div class="form-check border mt-1">
+                        @Html.RadioButtonFor(x=>x.Questions[3].Answers[0],@Model.Questions[3].Answers[1].Text , new { @class="form-check-input answer", @id = "question4-option2", data_id = @Model.Questions[3].Answers[1].Id})
+                        @Html.Label("question4-option2", "B) " + @Model.Questions[3].Answers[1].Text, new { @class="form-check-label"})
+                    </div>
+                    <div class="form-check border mt-1">
+                        @Html.RadioButtonFor(x=>x.Questions[3].Answers[0],@Model.Questions[3].Answers[2].Text, new { @class="form-check-input answer", @id = "question4-option3", data_id = @Model.Questions[3].Answers[2].Id})
+                        @Html.Label("question4-option3", "C) " + @Model.Questions[3].Answers[2].Text, new { @class="form-check-label"})
+                    </div>
+                    <div class="form-check border mt-1">
+                        @Html.RadioButtonFor(x=>x.Questions[3].Answers[0],@Model.Questions[3].Answers[3].Text, new { @class="form-check-input answer", @id = "question4-option4", data_id = @Model.Questions[3].Answers[3].Id})
+                        @Html.Label("question4-option4", "D) " + @Model.Questions[3].Answers[3].Text, new { @class="form-check-label"})
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-4">
+        <button  id="submitButton" type="button" class="btn btn-success">Sınavı bitir</button>
+    </div>
+
+</div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#submitButton').click(function (e) {
+
+            console.log(this.parentElement);
+            var elements = document.getElementsByClassName("answer");
+            var id = 0;
+
+            //for(var i = 0; i < elements.length; i++) {
+            //    elements[i].parentElement.style.backgroundColor = "red";
+            //}
+            var rabioButton;
+            $('.answer').each(function(item){
+                id = this.getAttribute('data-id');
+                rabioButton = this;
+
+                $.ajax({
+                    type: 'Get',
+                    async: false,
+                    url: '/AnswerIsTrue/'+ id,
+                    success: function (data) {
+                        if(data && rabioButton.checked) {
+                            rabioButton.parentElement.style.backgroundColor = "green";
+                        }
+                        else if(data && !rabioButton.checked) {
+                            rabioButton.parentElement.style.backgroundColor = "red";
+                        }
+                    }
+                });
+            });
+
+            var articleID = document.getElementById('article-id').value;
+            $.ajax({
+                type: 'Post',
+                url: '/AddUserExam/'+ articleID,
+                success: function () {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Harikaa! Sınavı başarıyla tamamladın.',
+                        text: 'Doğru ve yanlışlarına göz atmaya ne dersin?',
+                        showConfirmButton: false,
+                        timer: 2000 });
+                    }
+                });
+
+            $('#submitButton').attr('disabled', true);
+        });
+    });
+</script>
