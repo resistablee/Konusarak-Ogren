@@ -67,7 +67,6 @@ namespace KonusarakOgren.DataAccess.Concrete
         public async Task<TEntity> InsertAsync(TEntity entity)
         {
             await _entities.AddAsync(entity);
-            _context.Entry(entity).State = EntityState.Detached;
 
             try
             {
@@ -77,6 +76,8 @@ namespace KonusarakOgren.DataAccess.Concrete
             {
                 throw new Exception(ex.ToString(), ex);
             }
+
+            _context.Entry(entity).State = EntityState.Detached;
 
             return entity;
         }
